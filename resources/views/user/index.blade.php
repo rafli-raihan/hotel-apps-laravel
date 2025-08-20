@@ -6,6 +6,9 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">{{ $title ?? '' }}</h3>
+                    <div align="right" class="mb-3">
+                        <a href="{{ route('user.create') }}" class="btn btn-primary">Tambah</a>
+                    </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -22,8 +25,13 @@
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
                                     <td>
-                                        <a href="" class="btn btn-success">Edit</a>
-                                        <a href="" class="btn btn-success">Delete</a>
+                                        <a href="{{ route('user.edit', $data->id) }}" class="btn btn-success">Edit</a>
+                                        <form action="{{ route('user.destroy', $data->id) }}" method="post"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-success">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
