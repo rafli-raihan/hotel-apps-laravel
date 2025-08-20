@@ -21,8 +21,8 @@
                      </a>
                  </li>
                  <li>
-                     <a href="components-accordion.html">
-                         <i class="bi bi-circle"></i><span>Accordion</span>
+                     <a href="{{ route('categories.index') }}">
+                         <i class="bi bi-circle"></i><span>Kategori Kamar</span>
                      </a>
                  </li>
                  <li>

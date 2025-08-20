@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Data User')
+@section('title', 'Kategori Kamar')
 @section('content')
     <div class="row">
         <div class="col-sm-12">
@@ -7,14 +7,14 @@
                 <div class="card-body">
                     <h3 class="card-title">{{ $title ?? '' }}</h3>
                     <div align="right" class="mb-3">
-                        <a href="{{ route('user.create') }}" class="btn btn-primary">Tambah</a>
+                        <a href="{{ route('categories.create') }}" class="btn btn-primary">Tambah</a>
                     </div>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Email</th>
+                                <th>Slug</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -23,10 +23,10 @@
                                 <tr>
                                     <td>{{ $index += 1 }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->email }}</td>
+                                    <td>{{ $data->slug }}</td>
                                     <td>
-                                        <a href="{{ route('user.edit', $data->id) }}" class="btn btn-success">Edit</a>
-                                        <form action="{{ route('user.destroy', $data->id) }}" method="post"
+                                        <a href="{{ route('categories.edit', $data->id) }}" class="btn btn-success">Edit</a>
+                                        <form action="{{ route('categories.destroy', $data->id) }}" method="post"
                                             class="d-inline">
                                             @csrf
                                             @method('DELETE')
