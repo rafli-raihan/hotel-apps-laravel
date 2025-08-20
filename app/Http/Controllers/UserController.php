@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +12,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $datas = User::orderBy('id', 'desc')->get();
+        $title = "Data User";
+        return view('user.index', compact('datas', 'title'));
+        // setiap nambah variable, masukin nama variable ke compact()
     }
 
     /**
