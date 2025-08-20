@@ -15,6 +15,8 @@ Route::post('login_action', [\App\Http\Controllers\LoginController::class, 'logi
 Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 Route::resource('user',  \App\Http\Controllers\UserController::class);
 Route::resource('categories',  \App\Http\Controllers\CategoriesController::class);
+Route::resource('rooms',  \App\Http\Controllers\RoomsController::class);
+
 
 
 
