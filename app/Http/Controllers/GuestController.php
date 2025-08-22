@@ -17,7 +17,9 @@ class GuestController extends Controller
     public function index()
     {
         //
-        return view("guests.index");
+        $guestDatas = Guest::orderBy('id', 'desc')->get();
+        $title = "Data Guest";
+        return view("guests.index", compact('guestDatas', 'title'));
     }
 
     /**
@@ -72,6 +74,10 @@ class GuestController extends Controller
     public function edit(string $id)
     {
         //
+        $edit = Guest::find($id);
+        $categories = Categories::all();
+        $title = "Ubah Tamu";
+        return view('guests.edit', compact('edit', 'title', 'categories'));
     }
 
     /**

@@ -17,24 +17,50 @@
                                 <th>Tgl. Check in / Checkout</th>
                                 <th>No. Kamar</th>
                                 <th>Kontak Tamu</th>
+                                <th>Status Tamu</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    <a href="" class="btn btn-outline-success">Edit</a>
-                                    <form action="" method="post" onclick="return confirm()" style="display: inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger">Delete</button>
-                                    </form>
-                                </td>
+                                @foreach ($guestDatas as $index => $guest)
+                                    <td>{{ $index += 1 }}</td>
+                                    <td>{{ $guest->nama_tamu }}</td>
+                                    <td>
+                                        <div class="d-block">Check In : {{ $guest->check_in }}</div>
+                                        <div class="d-block">Check Out : {{ $guest->check_out }}</div>
+                                    </td>
+                                    <td>{{ $guest->no_kamar }}</td>
+                                    <td>
+                                        <div class="d-block">
+                                            No. Telp: {{ $guest->no_tel }}
+                                        </div>
+                                        <div class="d-block">
+                                            Email: {{ $guest->email }}
+                                        </div>
+                                        <div class="d-block">
+                                            Alamat: {{ $guest->alamat }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-block">
+                                            Kelas: {{ $guest->status_tamu }}
+                                        </div>
+                                        <div class="d-block">
+                                            Disabilitas: {{ $guest->kebutuhan_khusus }}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('guests.edit', $guest->id) }}"
+                                            class="btn btn-outline-success">Edit</a>
+                                        <form action="" method="post" onclick="return confirm()"
+                                            style="display: inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                @endforeach
                             </tr>
                         </tbody>
                     </table>

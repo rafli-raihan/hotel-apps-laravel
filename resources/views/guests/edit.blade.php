@@ -1,9 +1,14 @@
 @extends('app')
-@section('title', 'Tambah Tamu')
+@section('title', 'Edit Tamu')
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card">
+                @foreach ($errors->all() as $i)
+                    <ul class="text-danger">
+                        <li>{{ $i }}</li>
+                    </ul>
+                @endforeach
                 <h3 class="card-title">
                     {{ $title ?? '' }}
                 </h3>
@@ -12,7 +17,8 @@
                         @csrf
                         <div class="mb-3">
                             <label for="">Nama</label>
-                            <input type="text" class="form-control" name="name" required>
+                            <input type="text" class="form-control" name="nama_tamu" value="{{ }}"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="">Email</label>
@@ -20,15 +26,15 @@
                         </div>
                         <div class="mb-3">
                             <label for="">No. Telp</label>
-                            <input type="number" class="form-control" name="no_telp" required>
+                            <input type="number" class="form-control" name="no_tel" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Check_In</label>
-                            <input type="text" class="form-control" name="check_in" required>
+                            <input type="date" class="form-control" name="check_in" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Check_Out</label>
-                            <input type="text" class="form-control" name="check_out" required>
+                            <input type="date" class="form-control" name="check_out" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Kebutuhan Khusus</label>
