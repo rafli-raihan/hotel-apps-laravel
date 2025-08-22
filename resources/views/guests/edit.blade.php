@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Tambah Tamu')
+@section('title', 'Edit Tamu')
 @section('content')
     <div class="row">
         <div class="col-12">
