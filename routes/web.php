@@ -8,7 +8,6 @@ Route::get('/', function () {
 
 
 //get (melihat/read), post (insert/create), put (update), delete (hapus) ==> semuanya pakai form
-Route::get('belajar', [\App\Http\Controllers\BelajarController::class, 'index']);
 Route::get('login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
 Route::post('login_action', [\App\Http\Controllers\LoginController::class, 'loginAction'])->name('login_action');
 
@@ -16,6 +15,9 @@ Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 Route::resource('user',  \App\Http\Controllers\UserController::class);
 Route::resource('categories',  \App\Http\Controllers\CategoriesController::class);
 Route::resource('rooms',  \App\Http\Controllers\RoomsController::class);
+Route::resource('guests',  \App\Http\Controllers\GuestController::class);
+
+
 
 
 
