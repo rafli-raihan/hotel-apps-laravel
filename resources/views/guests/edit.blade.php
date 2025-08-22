@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Edit Tamu')
+@section('title', 'Tambah Tamu')
 @section('content')
     <div class="row">
         <div class="col-12">
@@ -17,8 +17,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="">Nama</label>
-                            <input type="text" class="form-control" name="nama_tamu" value="{{ }}"
-                                required>
+                            <input type="text" class="form-control" name="nama_tamu" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Email</label>
