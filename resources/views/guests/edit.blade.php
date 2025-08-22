@@ -17,23 +17,26 @@
                         @csrf
                         <div class="mb-3">
                             <label for="">Nama</label>
-                            <input type="text" class="form-control" name="nama_tamu" required>
+                            <input type="text" class="form-control" name="nama_tamu" value="{{ $edit->nama_tamu }}"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="">Email</label>
-                            <input type="text" class="form-control" name="email" required>
+                            <input type="text" class="form-control" name="email" value="{{ $edit->email }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="">No. Telp</label>
-                            <input type="number" class="form-control" name="no_tel" required>
+                            <input type="number" class="form-control" name="no_tel" value="{{ $edit->no_tel }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Check_In</label>
-                            <input type="date" class="form-control" name="check_in" required>
+                            <input type="date" class="form-control" name="check_in" value="{{ $edit->check_in }}"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="">Check_Out</label>
-                            <input type="date" class="form-control" name="check_out" required>
+                            <input type="date" class="form-control" name="check_out" value="{{ $edit->check_out }}"
+                                required>
                         </div>
                         <div class="mb-3">
                             <label for="">Kebutuhan Khusus</label>
@@ -53,7 +56,7 @@
                         </script>
                         <div class="mb-3">
                             <label for="">Alamat</label>
-                            <textarea type="text" class="form-control" name="alamat" required></textarea>
+                            <textarea type="text" class="form-control" name="alamat" required>{{ $edit->alamat }}</textarea>
                         </div>
                         <div class="mb-3">
                             <label for="">No. Kamar</label>
