@@ -120,7 +120,11 @@
         room_id.addEventListener('change', function() {
             const selectedOption = this.options[this.selectedIndex];
             const price = selectedOption.getAttribute('data-price') || 0;
-            document.getElementById('roomRate').textContent = 'Rp. ' + price;
+            const rupiah = new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(price);
+            document.getElementById('roomRate').textContent = rupiah
         });
     </script>
 
