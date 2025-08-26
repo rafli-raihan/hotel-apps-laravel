@@ -89,6 +89,19 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script>
+        let category_id = document.getElementById('category_id');
+        category_id.addEventListener('change', async function() {
+            const id_category = this.value;
+
+            // ambil data dari backend, klo di jquery pake bisa pake ajax
+            const res = await fetch(`/get-room-by-category/${id_category}`);
+            const data = await res.json();
+
+            console.log("data", data);
+
+        })
+    </script>
 
 </body>
 

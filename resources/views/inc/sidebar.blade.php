@@ -36,8 +36,8 @@
                      </a>
                  </li>
                  <li>
-                     <a href="components-buttons.html">
-                         <i class="bi bi-circle"></i><span>Buttons</span>
+                     <a href="{{ route('reservation.index') }}">
+                         <i class="bi bi-calendar"></i><span>Reservasi</span>
                      </a>
                  </li>
                  <li>
