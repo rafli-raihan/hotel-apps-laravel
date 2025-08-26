@@ -91,16 +91,37 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script>
         let category_id = document.getElementById('category_id');
+        let room_id = document.getElementById('room_id');
+
         category_id.addEventListener('change', async function() {
-            const id_category = this.value;
+            try {
+                const id_category = this.value;
 
-            // ambil data dari backend, klo di jquery pake bisa pake ajax
-            const res = await fetch(`/get-room-by-category/${id_category}`);
-            const data = await res.json();
+                room_id.innerHTML = "<option value=''>Pilih Kamar..</option>";
+                // ambil data dari backend, klo di jquery pake bisa pake ajax
+                const res = await fetch(`/get-room-by-category/${id_category}`);
+                const data = await res.json();
+                data.data.forEach(room => {
+                    const option = document.createElement('option');
+                    option.value = room.id;
+                    option.textContent = room.name;
+                    option.setAttribute('data-price', room.price);
+                    room_id.appendChild(option);
+                });
 
-            console.log("data", data);
+                console.log("data", data);
+
+            } catch (error) {
+                console.log(error, error)
+            }
 
         })
+
+        room_id.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const price = selectedOption.getAttribute('data-price') || 0;
+            document.getElementById('roomRate').textContent = 'Rp. ' + price;
+        });
     </script>
 
 </body>
